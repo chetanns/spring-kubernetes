@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: myapp
+  template:
+    metadata:
+      labels:
+        name: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: chetanns/myapp:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /etc/config
+              name: app-config-map
+              readOnly: true
+      volumes:
+        - name: app-config-map
+          configMap:
+            defaultMode: 384
+            name: service-config
+      imagePullSecrets:
+        - name: dockersecret
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: myapp-service
+spec:
+  selector:
+    name: myapp-service
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
