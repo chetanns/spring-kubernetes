@@ -10,7 +10,7 @@ docker run -p 8080:8080 myorg/myapp
 
 Docker hub access token
 
-dckr_pat_eML1HvAKAifJ0PkX-zwb5EdMU4g
+<CLUSTER_TOKEN>
 
 ## For volumn mounted configMap use the following value for the spring.config.import value
 
