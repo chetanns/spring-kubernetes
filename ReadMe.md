@@ -24,4 +24,4 @@ kubectl create configmap language --from-literal=LANGUAGE=Spanish \
 ##  create secret
 
 kubectl create secret docker-registry dockersecret \
---docker-server=http://hub.docker.com --docker-username=chetanns --docker-password=Cvs67890 --docker-email=chetanns@gmail.com
+--docker-server=http://hub.docker.com --docker-username=<username> --docker-password=<password> --docker-email=chetanns@gmail.com
