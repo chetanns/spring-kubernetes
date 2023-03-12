@@ -1,4 +1,5 @@
 pipeline {
+    /*
     agent {
         docker {
             image 'maven:3.9.0-eclipse-temurin-11'
@@ -11,7 +12,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean install'
             }
         }
-    }
+    }*/
     post {
         success {
             slackSend (channel: "#app-development",token:"Slack-Token", iconEmoji:":white_check_mark:", color:"good", message: "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
