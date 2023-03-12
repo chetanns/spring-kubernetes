@@ -14,7 +14,7 @@ pipeline {
     }
     post {
         success {
-            slackSend (channel: "#app-development",token:"Slack-Token", color:"good", message: "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+            slackSend (channel: "#app-development",token:"Slack-Token", iconEmoji:":white_check_mark:", color:"good", message: "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
         }
     }
 }
